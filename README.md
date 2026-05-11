@@ -23,6 +23,8 @@
 
 #### 📰 News
 
+- **2026.05.11:** ComfyUI-SparkVSR is released.🚀🚀🚀
+
 - **2026.03.17:** This repo is released.🔥🔥🔥
 
 ---
@@ -68,7 +70,7 @@ Moreover, we demonstrate that SparkVSR is a generic interactive, keyframe-condit
 - ✅ Release pre-trained models.
 - ✅ Release training code.
 - ✅ Release project page.
-- ⬜ Release ComfyUI.
+- ✅ Release ComfyUI.
 
 ## ⚙️ Dependencies
 
@@ -323,6 +325,11 @@ To quantitatively evaluate the super-resolved videos, we provide a unified evalu
 > 3. Download the pre-trained weights specified in their repositories to their respective nested algorithm folders.
 
 Once the metrics are set up, you can simply run the unified evaluation script [`run_eval_all.sh`](./run_eval_all.sh) to calculate the scores. The evaluation results will be saved as `all_metrics_results.json` in your specified output directory.
+
+## ComfyUI Version
+
+We also provide a ComfyUI implementation of SparkVSR for easier and more flexible inference.  
+Please refer to the `ComfyUI-Spark/` folder for installation instructions, workflow examples, and usage details.
 
 ## <a name="citation"></a>📎 Citation
 
