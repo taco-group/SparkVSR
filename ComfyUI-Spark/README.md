@@ -24,7 +24,7 @@ SparkVSR upscales low-resolution video with optional high-resolution reference f
 
 ```bash
 cd /path/to/ComfyUI/custom_nodes
-git clone https://github.com/JiongzeYu/ComfyUI-SparkVSR
+git clone https://github.com/SparkVSR/ComfyUI-SparkVSR
 cd ComfyUI-SparkVSR
 pip install -r requirements.txt
 ```
@@ -41,12 +41,18 @@ pip install -r ComfyUI-VideoHelperSuite/requirements.txt
 
 ### 3. Set up PiSA-SR weights (required for default `pisa_ref` mode)
 
-Download `pisa_sr.pkl` (~32 MB) once and place it in ComfyUI's `models/loras/` folder:
+Download `pisa_sr.pkl` (~32 MB) once from the official PiSA-SR Google Drive folder:
+
+https://drive.google.com/drive/folders/1oLetijWNd59xwJE5oU-eXylQBifxWdss
+
+Then place it in ComfyUI's `models/loras/` folder:
 
 ```bash
-huggingface-cli download jiangyzy/PiSA-SR pisa_sr.pkl \
-  --local-dir /path/to/ComfyUI/models/loras/
+mkdir -p /path/to/ComfyUI/models/loras
+cp /path/to/downloads/pisa_sr.pkl /path/to/ComfyUI/models/loras/pisa_sr.pkl
 ```
+
+Note: `huggingface-cli download jiangyzy/PiSA-SR pisa_sr.pkl` is not a reliable public download path for this file; it currently requires authentication.
 
 The plugin auto-detects the file from `models/loras/pisa_sr.pkl` — no manual path configuration needed.
 
@@ -80,7 +86,7 @@ ComfyUI-SparkVSR bundles all inference code directly — including a compatibili
 |---|---|---|
 | SparkVSR pipeline | ComfyUI env | Auto-downloaded from HuggingFace on first run |
 | PiSA-SR inference code | Bundled in this plugin | Nothing — already included |
-| PiSA-SR LoRA weights (`pisa_sr.pkl`) | ComfyUI env | **Download once to `models/loras/`** (Step 3 above) |
+| PiSA-SR LoRA weights (`pisa_sr.pkl`) | ComfyUI env | **Download once from Google Drive to `models/loras/`** (Step 3 above) |
 | SD 2.1 base model | ComfyUI env | Auto-downloaded on first `pisa_ref` run (Step 4 above) |
 | `peft`, `einops` packages | ComfyUI env | Auto-installed on plugin load |
 | Nano-Banana Pro API | External (fal.ai) | Optional — only for `nano-banana-pro-ref` |
