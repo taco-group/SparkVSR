@@ -20,13 +20,30 @@ SparkVSR upscales low-resolution video with optional high-resolution reference f
 
 ## Installation
 
-### 1. Clone the plugin
+### 1. Install the plugin
+
+ComfyUI-SparkVSR is published as the `ComfyUI-Spark/` subfolder in the SparkVSR repository:
+
+https://github.com/taco-group/SparkVSR/tree/main/ComfyUI-Spark
+
+Git cannot clone a single GitHub subfolder directly, so clone the SparkVSR repository with sparse checkout and link the plugin folder into ComfyUI's `custom_nodes/` directory:
 
 ```bash
 cd /path/to/ComfyUI/custom_nodes
-git clone https://github.com/SparkVSR/ComfyUI-SparkVSR
-cd ComfyUI-SparkVSR
+git clone --depth 1 --filter=blob:none --sparse https://github.com/taco-group/SparkVSR.git SparkVSR
+cd SparkVSR
+git sparse-checkout set ComfyUI-Spark
+cd ..
+ln -s SparkVSR/ComfyUI-Spark ComfyUI-Spark
+cd ComfyUI-Spark
 pip install -r requirements.txt
+```
+
+For updates, run:
+
+```bash
+cd /path/to/ComfyUI/custom_nodes/SparkVSR
+git pull
 ```
 
 ### 2. Install ComfyUI-VideoHelperSuite
