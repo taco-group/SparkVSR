@@ -18,6 +18,30 @@ SparkVSR upscales low-resolution video with optional high-resolution reference f
 - Temporal chunking and spatial tiling controls for longer or larger videos
 - Enlarged output video preview in `SparkVSR Save Video`
 
+## Prerequisites
+
+You need a working ComfyUI installation before installing this custom node. If you do not have ComfyUI yet, follow the official manual installation guide:
+
+https://docs.comfy.org/installation/manual_install
+
+A minimal Linux/macOS setup looks like this:
+
+```bash
+git clone https://github.com/comfyanonymous/ComfyUI.git
+cd ComfyUI
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+
+# Install PyTorch for your GPU/CPU platform first, then:
+python -m pip install -r requirements.txt
+python main.py
+```
+
+After ComfyUI starts successfully, stop it and continue with the plugin installation. For Windows, ComfyUI Desktop or the official portable build is often easier. Whichever ComfyUI installation method you use, install this plugin's Python packages into the same Python environment that runs ComfyUI.
+
+The bundled workflow is configured for a multi-GPU workstation. If your machine has one GPU, set `SparkVSR Load Model -> device` to `cuda:0` and `SparkVSR Prepare Reference -> pisa_gpu` to `0` before queuing the workflow.
+
 ## Installation
 
 ### 1. Install the plugin
@@ -28,6 +52,8 @@ https://github.com/taco-group/SparkVSR/tree/main/ComfyUI-Spark
 
 Git cannot clone a single GitHub subfolder directly, so clone the SparkVSR repository with sparse checkout and link the plugin folder into ComfyUI's `custom_nodes/` directory:
 
+Linux/macOS:
+
 ```bash
 cd /path/to/ComfyUI/custom_nodes
 git clone --depth 1 --filter=blob:none --sparse https://github.com/taco-group/SparkVSR.git SparkVSR
@@ -36,8 +62,23 @@ git sparse-checkout set ComfyUI-Spark
 cd ..
 ln -s SparkVSR/ComfyUI-Spark ComfyUI-Spark
 cd ComfyUI-Spark
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
+
+Windows Command Prompt:
+
+```bat
+cd \path\to\ComfyUI\custom_nodes
+git clone --depth 1 --filter=blob:none --sparse https://github.com/taco-group/SparkVSR.git SparkVSR
+cd SparkVSR
+git sparse-checkout set ComfyUI-Spark
+cd ..
+mklink /D ComfyUI-Spark SparkVSR\ComfyUI-Spark
+cd ComfyUI-Spark
+python -m pip install -r requirements.txt
+```
+
+If `mklink` fails on Windows, run Command Prompt as Administrator or enable Developer Mode.
 
 For updates, run:
 
@@ -53,7 +94,7 @@ Required for the `VHS_LoadVideo` node used by the default workflow:
 ```bash
 cd /path/to/ComfyUI/custom_nodes
 git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
-pip install -r ComfyUI-VideoHelperSuite/requirements.txt
+python -m pip install -r ComfyUI-VideoHelperSuite/requirements.txt
 ```
 
 ### 3. Set up PiSA-SR weights (required for default `pisa_ref` mode)
@@ -82,7 +123,7 @@ PiSA-SR requires SD 2.1 base weights (~5 GB). The plugin defaults to `Manojb/sta
 `peft` and `einops` are listed in `requirements.txt` and are also auto-installed by the plugin on first load if missing. You can also install them manually:
 
 ```bash
-pip install "peft>=0.9.0" "einops>=0.6.0"
+python -m pip install "peft>=0.9.0" "einops>=0.6.0"
 ```
 
 ### 6. Optional: Nano-Banana Pro API mode
@@ -90,12 +131,12 @@ pip install "peft>=0.9.0" "einops>=0.6.0"
 Only needed for `nano-banana-pro-ref`:
 
 ```bash
-pip install fal-client requests
+python -m pip install fal-client requests
 ```
 
 Restart ComfyUI after installation.
 
-### Architecture
+## Architecture
 
 ComfyUI-SparkVSR bundles all inference code directly — including a compatibility-patched copy of PiSA-SR's inference logic. Everything runs inside the ComfyUI Python environment. No separate conda environment is required.
 
@@ -184,8 +225,9 @@ To use the workflow:
 2. Let the startup workflow auto-load, or manually load `sparkvsr_all_modes_preview.json`.
 3. Confirm `VHS_LoadVideo` points to `hitachi_isee5_001.mp4` or choose your own low-resolution video.
 4. Choose `ref_mode` in `SparkVSR Prepare Reference` (default is `pisa_ref`).
-5. Confirm `upscale=4`, or set `target_width` and `target_height` for an explicit output size.
-6. Queue the prompt.
+5. Set `device` in `SparkVSR Load Model` and `pisa_gpu` in `SparkVSR Prepare Reference` to an available GPU on your machine.
+6. Confirm `upscale=4`, or set `target_width` and `target_height` for an explicit output size.
+7. Queue the prompt.
 
 ## Reference Modes
 
