@@ -339,7 +339,7 @@ Please refer to the `ComfyUI-Spark/` folder for installation instructions, workf
 If you find the code helpful in your research or work, please cite the following paper(s).
 
 ```bibtex
-@misc{yu2026sparkvsrinteractivevideosuperresolution,
+@misc{yu2026sparkvsr,
       title={SparkVSR: Interactive Video Super-Resolution via Sparse Keyframe Propagation}, 
       author={Jiongze Yu and Xiangbo Gao and Pooja Verlani and Akshay Gadde and Yilin Wang and Balu Adsumilli and Zhengzhong Tu},
       year={2026},
