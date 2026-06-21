@@ -10,6 +10,7 @@
     <br>
     <sup>†</sup>Corresponding author
   </p>
+  <h3><em>Accepted to ECCV 2026</em></h3>
   <p>
     <a href="https://sparkvsr.github.io/"><img src="https://img.shields.io/badge/Project-Page-Green"></a>
     &nbsp;
@@ -22,6 +23,8 @@
 > 💡 **Your ⭐ star means a lot to us and helps support the continuous development of this project!**
 
 #### 📰 News
+
+- **2026.06.18:** SparkVSR is accepted to ECCV 2026! 🎉🎉🎉
 
 - **2026.05.11:** ComfyUI-SparkVSR is released.🚀🚀🚀
 
