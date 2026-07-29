@@ -24,7 +24,7 @@
 
 #### 📰 News
 
-- **2026.06.20:** SparkVSR is now available on [RunningHub.ai](https://www.runninghub.ai/) and [CNAPS.ai](https://cnaps.ai/) via community deployments!
+- **2026.06.20:** SparkVSR is now available on [RunningHub.ai](https://www.runninghub.ai/) and [CNAPS.ai](https://docs.cnaps.ai/sparkvsr/) via community deployments!
 - **2026.06.18:** SparkVSR is accepted to ECCV 2026! 🎉🎉🎉
 - **2026.05.11:** ComfyUI-SparkVSR is released.🚀🚀🚀
 - **2026.03.17:** This repo is released.🔥🔥🔥
