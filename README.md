@@ -17,6 +17,9 @@
     <a href="https://huggingface.co/JiongzeYu/SparkVSR"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue"></a>
     &nbsp;
     <a href="https://arxiv.org/abs/2603.16864"><img src="https://img.shields.io/badge/arXiv-2603.16864-b31b1b.svg"></a>
+    &nbsp;
+    <a href="https://paperswithcode.co/paper/2603.16864"><img src="https://img.shields.io/badge/Papers%20with%20Code-Leaderboards-21cbce">
+  </a>
   </p>
 </div>
 
@@ -24,6 +27,7 @@
 
 #### 📰 News
 
+- **2026.08.03:** SparkVSR is now available on [Papers with Code](https://paperswithcode.co/paper/2603.16864), with [14 verified evaluations](https://paperswithcode.co/paper/2603.16864#results). Thanks to the Hugging Face open-source team for curating and verifying the results! 
 - **2026.06.20:** SparkVSR is now available on [RunningHub.ai](https://www.runninghub.ai/) and [CNAPS.ai](https://docs.cnaps.ai/sparkvsr/) via community deployments!
 - **2026.06.18:** SparkVSR is accepted to ECCV 2026! 🎉🎉🎉
 - **2026.05.11:** ComfyUI-SparkVSR is released.🚀🚀🚀
@@ -64,6 +68,12 @@ Moreover, we demonstrate that SparkVSR is a generic interactive, keyframe-condit
 </p>
 
 
+## 🏆 Papers with Code Leaderboards
+
+[![Papers with Code: SOTA on RealVSR - 4x restoration (DOVE protocol)](https://paperswithcode.co/api/v1/papers/2603.16864/leaderboard-badge.svg?eval=12369&live=1)](https://paperswithcode.co/benchmark/realvsr-4x-restoration-dove-protocol?task=video-super-resolution&eval=12369)
+[![Papers with Code: #2 on SPMCS - 4x RealBasicVSR degradation](https://paperswithcode.co/api/v1/papers/2603.16864/leaderboard-badge.svg?eval=12366&live=1)](https://paperswithcode.co/benchmark/spmcs-4x-realbasicvsr-degradation?task=video-super-resolution&eval=12366)
+[![Papers with Code: #3 on UDM10](https://paperswithcode.co/api/v1/papers/2603.16864/leaderboard-badge.svg?eval=12363&live=1)](https://paperswithcode.co/benchmark/udm10?task=video-restoration&eval=12363)
+[![Papers with Code: #3 on YouHQ40](https://paperswithcode.co/api/v1/papers/2603.16864/leaderboard-badge.svg?eval=12470&live=1)](https://paperswithcode.co/benchmark/youhq40?task=video-restoration&eval=12470)
 
 
 ## 🔖 TODO
